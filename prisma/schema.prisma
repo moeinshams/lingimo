@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                     String         @id @default(cuid())
+  email                  String?        @unique
+  phone                  String?
+  passwordHash           String?
+  name                   String
+  surname                String?
+  age                    Int?
+  gender                 String?
+  dateOfBirth            DateTime?
+  image                  String         @default("")
+  role                   Role           @default(STUDENT)
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+  calendarAccessToken    String?
+  calendarRefreshToken   String?
+  calendarTokenExpiresAt DateTime?
+  availabilities         Availability[]
+  sessionsAsStudent      Session[]      @relation("StudentSessions")
+  sessionsAsTeacher      Session[]      @relation("TeacherSessions")
+}
+
+model Session {
+  id        String        @id @default(cuid())
+  studentId String
+  teacherId String
+  startTime DateTime
+  endTime   DateTime
+  meetLink  String?
+  focus     String        @default("Conversation")
+  status    SessionStatus @default(UPCOMING)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  student   User          @relation("StudentSessions", fields: [studentId], references: [id])
+  teacher   User          @relation("TeacherSessions", fields: [teacherId], references: [id])
+}
+
+
+model Availability {
+  id        String   @id @default(cuid())
+  teacher   User     @relation(fields: [teacherId], references: [id])
+  teacherId String
+  focus     String   @default("Conversation")
+  level     String   @default("Beginner")
+  price     Int      @default(18)
+  startTime DateTime
+  endTime   DateTime
+  booked    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  STUDENT
+  TEACHER
+}
+
+enum SessionStatus {
+  UPCOMING
+  COMPLETED
+  CANCELED
+}

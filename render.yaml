@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: lingimo
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run render-build
+    preDeployCommand: npx prisma migrate deploy
+    startCommand: npm run start
+    healthCheckPath: /home
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_URL
+        value: https://lingimo.com
+      - key: NEXTAUTH_URL
+        value: https://lingimo.com
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: lingimo-db
+          property: connectionString
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+
+databases:
+  - name: lingimo-db
+    plan: starter
