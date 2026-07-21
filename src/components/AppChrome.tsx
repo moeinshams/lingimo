@@ -63,7 +63,7 @@ export default function AppChrome({
             })}
           </nav>
 
-          <div className="mt-auto rounded-[24px] bg-white/18 p-4 text-white shadow-inner">
+          <div className="mt-auto rounded-[24px] bg-white/70 p-4 text-slate-950 shadow-inner">
             <p className="truncate text-lg font-black">{user.name}</p>
             <p className="text-sm font-bold text-slate-500">{user.role === 'TEACHER' ? t('roleTeacher') : user.role === 'ADMIN' ? t('roleAdmin') : t('roleStudent')}</p>
             <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-black text-indigo-700" onClick={signOut}>

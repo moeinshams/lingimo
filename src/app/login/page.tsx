@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { KeyRound, Mail, MessageCircle, Phone } from 'lucide-react'
+import ReactiveLetters from '@/components/ReactiveLetters'
 import { useI18n } from '@/lib/i18n'
 
 export default function LoginPage() {
@@ -38,9 +39,7 @@ export default function LoginPage() {
     <main className="app-frame grid min-h-screen place-items-center" dir={dir}>
       <section className="auth-card grid w-full max-w-5xl md:grid-cols-[0.95fr_1.05fr]">
         <div className="hero-pod min-h-[520px] rounded-none p-8">
-          <div className="orb left-[12%] top-[18%] size-20 bg-emerald-400/75">EN</div>
-          <div className="orb right-[14%] top-[26%] size-24 bg-rose-300/75">FA</div>
-          <div className="orb bottom-[18%] left-[20%] size-24 bg-indigo-300/75">ES</div>
+          <ReactiveLetters />
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
             <div className="mascot mb-7 text-4xl font-black">Go</div>
             <h1 className="text-4xl font-black leading-tight">{t('loginTitle')}</h1>

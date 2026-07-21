@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Database, Save, Trash2 } from 'lucide-react'
 import AppChrome from '@/components/AppChrome'
+import ReactiveLetters from '@/components/ReactiveLetters'
 import type { AppUser, Role } from '@/lib/appTypes'
 import { useI18n } from '@/lib/i18n'
 
@@ -61,6 +62,7 @@ export default function DatabasePage() {
     <AppChrome user={current} title="databaseTitle">
       <div className="grid gap-4">
         <section className="hero-pod p-6 md:p-8">
+          <ReactiveLetters />
           <div className="relative z-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-black text-indigo-500">Postgres</p>

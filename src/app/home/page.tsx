@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BookOpenCheck, CalendarHeart, Database, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import AppChrome from '@/components/AppChrome'
+import ReactiveLetters from '@/components/ReactiveLetters'
 import type { AppUser } from '@/lib/appTypes'
 import { useI18n } from '@/lib/i18n'
 
@@ -32,10 +33,7 @@ export default function HomePage() {
         </div>
       ) : null}
       <section className="hero-pod min-h-[520px] p-6 md:p-10">
-        <div className="orb left-[8%] top-[20%] size-20 bg-emerald-400/75">Olá</div>
-        <div className="orb right-[14%] top-[18%] size-24 bg-rose-300/75">TR</div>
-        <div className="orb left-[18%] bottom-[18%] size-28 bg-indigo-300/75">JP</div>
-        <div className="orb right-[18%] bottom-[22%] size-20 bg-sky-300/75">FR</div>
+        <ReactiveLetters />
 
         <div className="relative z-10 mx-auto flex h-full max-w-lg flex-col items-center justify-center text-center">
           <div className="mascot mb-7 text-4xl font-black">Hi</div>
