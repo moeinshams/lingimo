@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { CalendarDays, Database, Home, LayoutDashboard, LogOut, Sparkles } from 'lucide-react'
+import { CalendarDays, Database, Home, LayoutDashboard, LogOut } from 'lucide-react'
+import LingimoMark from '@/components/LingimoMark'
 import type { AppUser } from '@/lib/appTypes'
 import { useI18n, type CopyKey } from '@/lib/i18n'
 
@@ -36,9 +37,7 @@ export default function AppChrome({
       <div className="app-frame grid min-h-screen gap-4 md:grid-cols-[230px_1fr]">
         <aside className="side-blob hidden h-[calc(100vh-40px)] sticky top-5 p-4 md:flex md:flex-col">
           <Link href="/home" className="mb-6 flex items-center gap-3">
-            <span className="logo-squish">
-              <Sparkles size={21} />
-            </span>
+            <LingimoMark size="sm" />
             <span>
               <span className="block text-2xl font-black leading-6">Lingimo</span>
               <span className="text-xs font-bold text-slate-500">{t('appName')}</span>
@@ -63,7 +62,7 @@ export default function AppChrome({
             })}
           </nav>
 
-          <div className="mt-auto rounded-[24px] bg-white/70 p-4 text-slate-950 shadow-inner">
+          <div className="user-chip mt-auto rounded-[24px] p-4 text-slate-950 shadow-inner">
             <p className="truncate text-lg font-black">{user.name}</p>
             <p className="text-sm font-bold text-slate-500">{user.role === 'TEACHER' ? t('roleTeacher') : user.role === 'ADMIN' ? t('roleAdmin') : t('roleStudent')}</p>
             <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-black text-indigo-700" onClick={signOut}>

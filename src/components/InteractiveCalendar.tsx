@@ -35,7 +35,7 @@ export default function InteractiveCalendar({ events }: { events: CalendarEvent[
   const dayEvents = events.filter((event) => sameDay(new Date(event.startTime), selectedDate))
 
   return (
-    <section className="blob-card p-4 md:p-5">
+    <section className="blob-card calendar-card p-4 md:p-5">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
           <h2 className="text-2xl font-black">{t('calendar')}</h2>

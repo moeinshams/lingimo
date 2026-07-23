@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { GraduationCap, Mail, Phone, School, UserRound } from 'lucide-react'
+import LingimoMark from '@/components/LingimoMark'
 import type { Role } from '@/lib/appTypes'
 import { useI18n } from '@/lib/i18n'
 
@@ -41,7 +42,7 @@ export default function SignupPage() {
     <main className="app-frame grid min-h-screen place-items-center" dir={dir}>
       <form onSubmit={submit} className="auth-card w-full max-w-3xl p-6 md:p-8">
         <div className="text-center">
-          <div className="mascot mx-auto mb-5 text-3xl font-black">Yo</div>
+          <LingimoMark size="md" className="mx-auto mb-5" />
           <h1 className="text-4xl font-black">{t('signupTitle')}</h1>
           <p className="mt-2 font-bold text-slate-500">{t('signupText')}</p>
         </div>

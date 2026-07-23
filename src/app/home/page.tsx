@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BookOpenCheck, CalendarHeart, Database, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import AppChrome from '@/components/AppChrome'
+import LingimoMark from '@/components/LingimoMark'
 import ReactiveLetters from '@/components/ReactiveLetters'
 import type { AppUser } from '@/lib/appTypes'
 import { useI18n } from '@/lib/i18n'
@@ -36,7 +37,7 @@ export default function HomePage() {
         <ReactiveLetters />
 
         <div className="relative z-10 mx-auto flex h-full max-w-lg flex-col items-center justify-center text-center">
-          <div className="mascot mb-7 text-4xl font-black">Hi</div>
+          <LingimoMark size="lg" className="mb-7" />
           <h1 className="text-4xl font-black leading-tight md:text-6xl">{t('homeHeroTitle')}</h1>
           <p className="mt-4 text-lg font-bold text-slate-500">{t('homeHeroText')}</p>
         </div>

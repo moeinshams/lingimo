@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { KeyRound, Mail, MessageCircle, Phone } from 'lucide-react'
+import LingimoMark from '@/components/LingimoMark'
 import ReactiveLetters from '@/components/ReactiveLetters'
 import { useI18n } from '@/lib/i18n'
 
@@ -41,7 +42,7 @@ export default function LoginPage() {
         <div className="hero-pod min-h-[520px] rounded-none p-8">
           <ReactiveLetters />
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
-            <div className="mascot mb-7 text-4xl font-black">Go</div>
+            <LingimoMark size="lg" className="mb-7" />
             <h1 className="text-4xl font-black leading-tight">{t('loginTitle')}</h1>
             <p className="mt-3 text-lg font-bold text-slate-500">{t('loginText')}</p>
           </div>
